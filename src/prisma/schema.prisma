@@ -1,0 +1,253 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id               String    @id @default(cuid())
+  name             String
+  phone            String?
+  address          String?
+  currencySymbol   String    @default("$")
+  receiptFooter    String?
+  plan             String    @default("ORO")
+  licenseExpiresAt DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  users         User[]
+  routes        Route[]
+  clients       Client[]
+  loans         Loan[]
+  payments      Payment[]
+  expenses      Expense[]
+  cashMovements CashMovement[]
+  auditLogs     AuditLog[]
+}
+
+model User {
+  id           String   @id @default(cuid())
+  companyId    String
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         String   @default("ADMIN")
+  status       String   @default("ACTIVE")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  company       Company        @relation(fields: [companyId], references: [id])
+  routeMembers  RouteMember[]
+  createdLoans  Loan[]         @relation("LoanCreatedBy")
+  payments      Payment[]
+  expenses      Expense[]
+  cashMovements CashMovement[]
+  auditLogs     AuditLog[]
+}
+
+model Route {
+  id          String   @id @default(cuid())
+  companyId   String
+  name        String
+  description String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  company       Company        @relation(fields: [companyId], references: [id])
+  members       RouteMember[]
+  clients       Client[]
+  loans         Loan[]
+  expenses      Expense[]
+  cashMovements CashMovement[]
+}
+
+model RouteMember {
+  id          String @id @default(cuid())
+  routeId     String
+  userId      String
+  permissions String @default("[]")
+
+  route Route @relation(fields: [routeId], references: [id])
+  user  User  @relation(fields: [userId], references: [id])
+
+  @@unique([routeId, userId])
+}
+
+model Client {
+  id             String   @id @default(cuid())
+  companyId      String
+  routeId        String
+  documentType   String   @default("CC")
+  documentNumber String
+  fullName       String
+  phone          String?
+  whatsapp       String?
+  homeAddress    String?
+  workAddress    String?
+  groupName      String   @default("Principal")
+  creditLimit    Int?
+  rating         String?
+  status         String   @default("ACTIVE")
+  notes          String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  company  Company   @relation(fields: [companyId], references: [id])
+  route    Route     @relation(fields: [routeId], references: [id])
+  loans    Loan[]
+  payments Payment[]
+
+  @@unique([companyId, documentNumber])
+  @@index([routeId])
+}
+
+model Loan {
+  id                String   @id @default(cuid())
+  companyId         String
+  routeId           String
+  clientId          String
+  code              String   @unique
+  alias             String?
+  principal         Int
+  interestRate      Int      @default(0)
+  interestAmount    Int      @default(0)
+  totalAmount       Int
+  installmentAmount Int
+  installmentCount  Int
+  modality          String   @default("DAILY")
+  paymentScheme     String   @default("INSTALLMENTS")
+  startDate         DateTime
+  endDate           DateTime
+  status            String   @default("ACTIVE")
+  noChargeSaturday  Boolean  @default(false)
+  noChargeSunday    Boolean  @default(false)
+  createdById       String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  company      Company       @relation(fields: [companyId], references: [id])
+  route        Route         @relation(fields: [routeId], references: [id])
+  client       Client        @relation(fields: [clientId], references: [id])
+  createdBy    User          @relation("LoanCreatedBy", fields: [createdById], references: [id])
+  installments Installment[]
+  payments     Payment[]
+
+  @@index([clientId])
+  @@index([routeId])
+  @@index([status])
+}
+
+model Installment {
+  id              String   @id @default(cuid())
+  loanId          String
+  number          Int
+  dueDate         DateTime
+  principalAmount Int
+  interestAmount  Int      @default(0)
+  moraAmount      Int      @default(0)
+  chargeAmount    Int      @default(0)
+  totalAmount     Int
+  paidAmount      Int      @default(0)
+  balance         Int
+  status          String   @default("PENDING")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  loan Loan @relation(fields: [loanId], references: [id])
+
+  @@unique([loanId, number])
+  @@index([dueDate])
+}
+
+model Payment {
+  id             String    @id @default(cuid())
+  companyId      String
+  routeId        String
+  clientId       String
+  loanId         String
+  amount         Int
+  principalPaid  Int       @default(0)
+  interestPaid   Int       @default(0)
+  moraPaid       Int       @default(0)
+  chargesPaid    Int       @default(0)
+  discountAmount Int       @default(0)
+  paymentType    String    @default("AUTOMATIC")
+  paymentMethod  String    @default("CASH")
+  note           String?
+  createdById    String
+  voidedAt       DateTime?
+  voidReason     String?
+  createdAt      DateTime  @default(now())
+
+  company   Company @relation(fields: [companyId], references: [id])
+  client    Client  @relation(fields: [clientId], references: [id])
+  loan      Loan    @relation(fields: [loanId], references: [id])
+  createdBy User    @relation(fields: [createdById], references: [id])
+
+  @@index([loanId])
+  @@index([routeId])
+  @@index([createdAt])
+}
+
+model Expense {
+  id          String    @id @default(cuid())
+  companyId   String
+  routeId     String
+  concept     String
+  category    String    @default("Otros")
+  amount      Int
+  date        DateTime
+  createdById String
+  voidedAt    DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  company   Company @relation(fields: [companyId], references: [id])
+  route     Route   @relation(fields: [routeId], references: [id])
+  createdBy User    @relation(fields: [createdById], references: [id])
+
+  @@index([routeId])
+  @@index([date])
+}
+
+model CashMovement {
+  id          String   @id @default(cuid())
+  companyId   String
+  routeId     String
+  type        String
+  amount      Int
+  concept     String
+  sourceType  String?
+  sourceId    String?
+  createdById String
+  createdAt   DateTime @default(now())
+
+  company   Company @relation(fields: [companyId], references: [id])
+  route     Route   @relation(fields: [routeId], references: [id])
+  createdBy User    @relation(fields: [createdById], references: [id])
+
+  @@index([routeId])
+  @@index([createdAt])
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  companyId  String
+  userId     String
+  action     String
+  entityType String
+  entityId   String
+  beforeJson String?
+  afterJson  String?
+  createdAt  DateTime @default(now())
+
+  company Company @relation(fields: [companyId], references: [id])
+  user    User    @relation(fields: [userId], references: [id])
+
+  @@index([entityType, entityId])
+}
