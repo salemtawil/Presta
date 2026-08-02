@@ -10,9 +10,13 @@ src/out/
 
 # local env
 .env
-.env.*
+.env.local
+.env*.local
 src/.env
-src/.env.*
+src/.env.local
+src/.env*.local
+!.env.example
+!.env.production.example
 
 # local databases and generated test output
 *.db
@@ -24,6 +28,9 @@ src/playwright-report/
 
 # nested git backup from local cleanup
 src/.git-src-backup/
+src/.vercel/
+src/next-env.d.ts
+.vercel/
 
 # logs
 *.log

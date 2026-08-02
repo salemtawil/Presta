@@ -43,7 +43,7 @@
 ## Validacion tecnica local
 
 ```powershell
-cd C:\Proyectos\Presta\src
+cd C:\Proyectos\Presta
 npm.cmd test
 npm.cmd run test:e2e
 npm.cmd run lint
@@ -55,7 +55,7 @@ npm.cmd audit --omit=dev
 El flujo completo queda preparado con:
 
 ```powershell
-cd C:\Proyectos\Presta\src
+cd C:\Proyectos\Presta
 $env:E2E_RUN_FULL="true"
 $env:E2E_EMAIL="admin@presta.local"
 $env:E2E_PASSWORD="password-real"

@@ -5,10 +5,10 @@
 El proyecto Next.js vive en:
 
 ```powershell
-C:\Proyectos\Presta\src
+C:\Proyectos\Presta
 ```
 
-En Vercel, configurar **Root Directory** como `src`.
+En Vercel, dejar **Root Directory** vacio/default. La app Next.js vive en la raiz del repo.
 
 ## Variables
 
@@ -41,7 +41,7 @@ next build
 Para preparar manualmente una base nueva desde local:
 
 ```powershell
-cd C:\Proyectos\Presta\src
+cd C:\Proyectos\Presta
 npm.cmd run db:generate
 npm.cmd run db:deploy
 npm.cmd run db:seed
@@ -55,7 +55,7 @@ SQLite quedo como referencia historica del prototipo, no como datasource princip
 ## Build
 
 ```powershell
-cd C:\Proyectos\Presta\src
+cd C:\Proyectos\Presta
 npm.cmd test
 npm.cmd run lint
 npm.cmd run build

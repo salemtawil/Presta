@@ -7,7 +7,7 @@ Proyecto para planificar y construir un MVP web inspirado en PrestaBIT, a partir
 - `docs/`: documento maestro y especificaciones del producto.
 - `research/`: inspecciones tecnicas de APK, app movil y web existente.
 - `assets/`: recursos visuales o material de referencia.
-- `src/`: aplicacion web Next.js del MVP.
+- `app/`, `lib/`, `prisma/`: aplicacion web Next.js del MVP.
 
 ## Documentos principales
 
@@ -29,10 +29,10 @@ Proyecto para planificar y construir un MVP web inspirado en PrestaBIT, a partir
 
 ## Desarrollo local
 
-Desde `src/`, configurar `.env` con una URL Postgres:
+Desde la raiz del repo, configurar `.env` con una URL Postgres:
 
 ```powershell
-cd C:\Proyectos\Presta\src
+cd C:\Proyectos\Presta
 npm.cmd ci
 npm.cmd run db:generate
 npm.cmd run db:deploy
@@ -42,7 +42,7 @@ npm.cmd run dev
 
 ## Validacion
 
-Desde `src/`:
+Desde la raiz:
 
 ```powershell
 npm.cmd test
@@ -54,6 +54,6 @@ npm.cmd audit --omit=dev
 
 ## Deploy
 
-En Vercel, el **Root Directory** debe ser `src`.
+En Vercel, dejar el **Root Directory** vacio/default porque la app vive en la raiz.
 
 Detalles completos: `docs/deploy_vercel_postgres.md`.
