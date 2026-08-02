@@ -7,7 +7,7 @@ Proyecto para planificar y construir un MVP web inspirado en PrestaBIT, a partir
 - `docs/`: documento maestro y especificaciones del producto.
 - `research/`: inspecciones tecnicas de APK, app movil y web existente.
 - `assets/`: recursos visuales o material de referencia.
-- `src/`: codigo de la futura aplicacion web.
+- `src/`: aplicacion web Next.js del MVP.
 
 ## Documentos principales
 
@@ -16,41 +16,44 @@ Proyecto para planificar y construir un MVP web inspirado en PrestaBIT, a partir
 - `research/prestabit_inspeccion_app_apk.md`: inspeccion de APK y app movil.
 - `research/prestabit_web_inspeccion.md`: inspeccion de `prestabit.vercel.app`.
 
-## Stack propuesto
+## Stack
 
 - Next.js
 - React
 - TypeScript
 - Tailwind CSS
 - Prisma
-- SQLite en desarrollo
-- PostgreSQL en produccion
+- PostgreSQL
 - Vitest para motor financiero
-- Playwright para flujos criticos
-
-## Siguiente paso sugerido
-
-Crear el scaffold de la aplicacion dentro de `src/`:
-
-- app Next.js
-- modelo Prisma inicial
-- seed demo
-- motor financiero testeable
-- layout base de dashboard
+- Playwright para smoke tests y flujos criticos
 
 ## Desarrollo local
 
-Desde `src/`:
+Desde `src/`, configurar `.env` con una URL Postgres:
 
 ```powershell
-npm.cmd run db:init
+cd C:\Proyectos\Presta\src
+npm.cmd ci
 npm.cmd run db:generate
+npm.cmd run db:deploy
 npm.cmd run db:seed
 npm.cmd run dev
 ```
 
-Notas:
+## Validacion
 
-- La base local usa SQLite en `src/prisma/dev.db`.
-- `db:init` crea las tablas con SQLite nativo de Node.
-- `db:push` queda disponible, pero en esta maquina el schema engine de Prisma falla sin detalle; por eso el flujo local usa `db:init`.
+Desde `src/`:
+
+```powershell
+npm.cmd test
+npm.cmd run test:e2e
+npm.cmd run lint
+npm.cmd run build
+npm.cmd audit --omit=dev
+```
+
+## Deploy
+
+En Vercel, el **Root Directory** debe ser `src`.
+
+Detalles completos: `docs/deploy_vercel_postgres.md`.
