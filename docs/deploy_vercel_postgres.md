@@ -15,6 +15,7 @@ En Vercel, dejar **Root Directory** vacio/default. La app Next.js vive en la rai
 Configurar en Vercel:
 
 - `DATABASE_URL`: URL Postgres con SSL.
+- `DIRECT_URL`: URL Postgres para migraciones Prisma.
 - `PRESTA_SEED_EMAIL`: correo del admin inicial.
 - `PRESTA_SEED_PASSWORD`: password inicial del admin.
 - `PRESTA_SEED_COMPANY`: nombre de la empresa inicial.
@@ -23,7 +24,12 @@ Configurar en Vercel:
 
 ## Base de datos
 
-El schema principal usa Postgres y migraciones versionadas. El build de Vercel ejecuta:
+El schema principal usa Postgres y migraciones versionadas. Con Supabase:
+
+- `DATABASE_URL`: usar **Supavisor Transaction pooler** puerto `6543` con `?pgbouncer=true`.
+- `DIRECT_URL`: usar **Supavisor Session pooler** puerto `5432`.
+
+El build de Vercel ejecuta:
 
 ```bash
 npm run vercel-build
