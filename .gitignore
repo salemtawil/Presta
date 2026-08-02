@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+src/node_modules/
+
+# builds
+.next/
+src/.next/
+out/
+src/out/
+
+# local env
+.env
+.env.*
+src/.env
+src/.env.*
+
+# local databases and generated test output
+*.db
+src/prisma/dev.db
+test-results/
+src/test-results/
+playwright-report/
+src/playwright-report/
+
+# nested git backup from local cleanup
+src/.git-src-backup/
+
+# logs
+*.log
+src/.next-dev*.log
