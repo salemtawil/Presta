@@ -67,7 +67,7 @@ export default async function Home() {
     {
       label: "Gastos del mes",
       value: formatMoney(data.expensesTotal),
-      note: "Datos demo desde SQLite",
+      note: "Datos demo en Supabase",
       icon: CreditCard,
       tone: "text-rose-700 bg-rose-50 border-rose-100",
     },
@@ -141,7 +141,7 @@ export default async function Home() {
           <div className="space-y-6 px-8 py-7">
             <section className="flex flex-wrap items-end justify-between gap-4">
               <div>
-                <p className="text-sm text-slate-500">Buen viernes</p>
+                <p className="text-sm text-slate-500">Bienvenido</p>
                 <h1 className="mt-1 text-3xl font-semibold tracking-normal">
                   {data.userName}
                 </h1>
