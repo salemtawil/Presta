@@ -22,7 +22,7 @@ Pantalla publica:
 Tras login:
 
 - Sidebar fijo.
-- Usuario `PRUEBA CODEX`.
+- Usuario demo administrativo.
 - Plan `ORO`.
 - Dias restantes.
 - Detalles de cuenta: email, vencimiento, pais, telefono.
@@ -530,4 +530,3 @@ Pero no conviene copiarla sin criterio porque:
 Recomendacion:
 
 Construir el MVP web con React/Next.js o stack web semantico, usando esta web como referencia de producto, no como base tecnica. El resultado seria mas accesible, testeable y mantenible, manteniendo los contratos de negocio ya observados.
-
