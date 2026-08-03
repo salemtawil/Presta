@@ -36,7 +36,7 @@ export default async function PaymentsPage({ searchParams }: PaymentsPageProps) 
   const data = await getPaymentsData(query);
 
   return (
-    <main className="min-h-screen bg-[#f7f8fb] text-slate-950">
+    <main className="min-h-screen bg-[#D5F0D1] text-slate-950">
       <div className="grid min-h-screen grid-cols-[248px_1fr]">
         <aside className="border-r border-slate-200 bg-white">
           <div className="flex h-16 items-center gap-3 border-b border-slate-200 px-5">

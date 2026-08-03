@@ -31,7 +31,7 @@ export default async function ReceiptPage({ params }: ReceiptPageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-[#f7f8fb] px-6 py-8 text-slate-950">
+    <main className="min-h-screen bg-[#D5F0D1] px-6 py-8 text-slate-950">
       <div className="mx-auto mb-4 flex max-w-3xl justify-between print:hidden">
         <Link
           href="/abonos"

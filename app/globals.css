@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f8fb;
-  --foreground: #0f172a;
+  --background: #D5F0D1;
+  --foreground: #17351f;
 }
 
 @theme inline {
@@ -10,6 +10,37 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-slate-50: #D5F0D1;
+  --color-slate-100: #CCECCE;
+  --color-slate-200: #BAD6B3;
+  --color-slate-300: #BAD6B3;
+  --color-slate-400: #7fb98b;
+  --color-slate-500: #5f8f68;
+  --color-slate-600: #44734f;
+  --color-slate-700: #32603d;
+  --color-slate-800: #285334;
+  --color-slate-950: #17351f;
+
+  --color-emerald-50: #D5F0D1;
+  --color-emerald-100: #CCECCE;
+  --color-emerald-200: #BAD6B3;
+  --color-emerald-700: #50A96B;
+
+  --color-sky-50: #CCECCE;
+  --color-sky-100: #BAD6B3;
+  --color-sky-700: #50A96B;
+
+  --color-rose-50: #D5F0D1;
+  --color-rose-100: #CCECCE;
+  --color-rose-200: #BAD6B3;
+  --color-rose-700: #32603d;
+
+  --color-amber-50: #D5F0D1;
+  --color-amber-100: #CCECCE;
+  --color-amber-200: #BAD6B3;
+  --color-amber-700: #50A96B;
+  --color-amber-800: #32603d;
 }
 
 body {
@@ -30,7 +61,7 @@ a {
   height: 40px;
   width: 100%;
   border-radius: 6px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #BAD6B3;
   background: #ffffff;
   padding: 0 12px;
   font-size: 14px;
@@ -38,7 +69,7 @@ a {
 }
 
 .field-input:focus {
-  border-color: #94a3b8;
+  border-color: #50A96B;
 }
 
 @media (max-width: 900px) {
@@ -55,7 +86,7 @@ a {
     top: 0;
     z-index: 30;
     border-right: 0 !important;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #BAD6B3;
   }
 
   aside nav {
