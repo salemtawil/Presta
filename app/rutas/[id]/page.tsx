@@ -51,7 +51,7 @@ export default async function RouteDetailPage({ params, searchParams }: RouteDet
   }
 
   return (
-    <main className="min-h-screen bg-[#D5F0D1] text-slate-950">
+    <main className="min-h-screen bg-background text-slate-950">
       <div className="mx-auto max-w-7xl px-6 py-8">
         {error.length > 0 ? (
           <div className="mb-4 rounded-md border border-rose-200 bg-rose-50 px-3 py-2 text-sm font-medium text-rose-700">

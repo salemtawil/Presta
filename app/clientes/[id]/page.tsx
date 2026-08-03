@@ -30,7 +30,7 @@ export default async function ClientDetailPage({ params }: ClientDetailPageProps
   }
 
   return (
-    <main className="min-h-screen bg-[#D5F0D1] text-slate-950">
+    <main className="min-h-screen bg-background text-slate-950">
       <div className="mx-auto max-w-7xl px-6 py-8">
         <div className="mb-6 flex items-center justify-between gap-4">
           <div>

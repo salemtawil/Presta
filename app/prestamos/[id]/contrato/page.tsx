@@ -32,7 +32,7 @@ export default async function ContractPage({ params }: ContractPageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-[#D5F0D1] px-6 py-8 text-slate-950">
+    <main className="min-h-screen bg-background px-6 py-8 text-slate-950">
       <div className="mx-auto mb-4 flex max-w-4xl justify-between print:hidden">
         <Link
           href={`/prestamos/${loan.id}`}

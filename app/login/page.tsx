@@ -19,7 +19,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
   const next = safeNextPath(typeof params.next === "string" ? params.next : "/");
 
   return (
-    <main className="grid min-h-screen grid-cols-[1fr_440px] bg-[#D5F0D1] text-slate-950 max-[900px]:grid-cols-1">
+    <main className="grid min-h-screen grid-cols-[1fr_440px] bg-background text-slate-950 max-[900px]:grid-cols-1">
       <section className="flex items-center px-12 max-[900px]:hidden">
         <div className="max-w-2xl">
           <div className="flex size-12 items-center justify-center rounded-md bg-[#50A96B] text-lg font-bold text-white">
