@@ -22,7 +22,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
     <main className="grid min-h-screen grid-cols-[1fr_440px] bg-[#D5F0D1] text-slate-950 max-[900px]:grid-cols-1">
       <section className="flex items-center px-12 max-[900px]:hidden">
         <div className="max-w-2xl">
-          <div className="flex size-12 items-center justify-center rounded-md bg-slate-950 text-lg font-bold text-white">
+          <div className="flex size-12 items-center justify-center rounded-md bg-[#50A96B] text-lg font-bold text-white">
             P
           </div>
           <h1 className="mt-8 text-4xl font-semibold tracking-normal">
@@ -38,7 +38,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
       <section className="flex items-center border-l border-slate-200 bg-white px-8 max-[900px]:border-l-0">
         <div className="w-full">
           <div className="mb-8">
-            <div className="mb-4 flex size-11 items-center justify-center rounded-md bg-slate-950 text-white">
+            <div className="mb-4 flex size-11 items-center justify-center rounded-md bg-[#50A96B] text-white">
               <LockKeyhole size={20} />
             </div>
             <h2 className="text-2xl font-semibold">Iniciar sesion</h2>
@@ -75,7 +75,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
                 className="field-input"
               />
             </label>
-            <button className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-md bg-slate-950 px-4 text-sm font-medium text-white hover:bg-slate-800">
+            <button className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-md bg-[#50A96B] px-4 text-sm font-medium text-white hover:bg-[#32603d]">
               <LogIn size={17} />
               Entrar
             </button>

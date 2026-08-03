@@ -56,7 +56,7 @@ export default async function ClientDetailPage({ params }: ClientDetailPageProps
             </Link>
             <Link
               href={`/prestamos/nuevo?clientId=${data.id}`}
-              className="inline-flex h-10 items-center gap-2 rounded-md bg-slate-950 px-4 text-sm font-medium text-white hover:bg-slate-800"
+              className="inline-flex h-10 items-center gap-2 rounded-md bg-[#50A96B] px-4 text-sm font-medium text-white hover:bg-[#32603d]"
             >
               <FilePlus size={17} />
               Nuevo prestamo

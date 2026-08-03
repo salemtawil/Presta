@@ -131,7 +131,7 @@ export default async function RouteDetailPage({ params, searchParams }: RouteDet
                   </option>
                 ))}
               </select>
-              <button className="inline-flex h-10 shrink-0 items-center gap-2 rounded-md bg-slate-950 px-4 text-sm font-medium text-white hover:bg-slate-800">
+              <button className="inline-flex h-10 shrink-0 items-center gap-2 rounded-md bg-[#50A96B] px-4 text-sm font-medium text-white hover:bg-[#32603d]">
                 <Plus size={17} />
                 Asignar
               </button>
@@ -159,7 +159,7 @@ export default async function RouteDetailPage({ params, searchParams }: RouteDet
                   </option>
                 ))}
               </select>
-              <button className="inline-flex h-10 shrink-0 items-center gap-2 rounded-md bg-slate-950 px-4 text-sm font-medium text-white hover:bg-slate-800">
+              <button className="inline-flex h-10 shrink-0 items-center gap-2 rounded-md bg-[#50A96B] px-4 text-sm font-medium text-white hover:bg-[#32603d]">
                 <UserPlus size={17} />
                 Agregar
               </button>

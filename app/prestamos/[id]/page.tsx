@@ -67,7 +67,7 @@ export default async function LoanDetailPage({ params, searchParams }: LoanDetai
             </Link>
             <Link
               href={`/abonos/nuevo?loanId=${data.id}`}
-              className="inline-flex h-10 items-center gap-2 rounded-md bg-slate-950 px-4 text-sm font-medium text-white hover:bg-slate-800"
+              className="inline-flex h-10 items-center gap-2 rounded-md bg-[#50A96B] px-4 text-sm font-medium text-white hover:bg-[#32603d]"
             >
               <BanknoteArrowDown size={17} />
               Nuevo abono

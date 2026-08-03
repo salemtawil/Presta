@@ -29,7 +29,7 @@ export default async function ClientsPage({ searchParams }: ClientsPageProps) {
       <div className="grid min-h-screen grid-cols-[248px_1fr]">
         <aside className="border-r border-slate-200 bg-white">
           <div className="flex h-16 items-center gap-3 border-b border-slate-200 px-5">
-            <div className="flex size-9 items-center justify-center rounded-md bg-slate-950 text-sm font-bold text-white">
+            <div className="flex size-9 items-center justify-center rounded-md bg-[#50A96B] text-sm font-bold text-white">
               P
             </div>
             <div>
@@ -57,7 +57,7 @@ export default async function ClientsPage({ searchParams }: ClientsPageProps) {
                 href={href}
                 className={`flex h-10 items-center rounded-md px-3 text-sm font-medium ${
                   label === "Clientes"
-                    ? "bg-slate-950 text-white"
+                    ? "bg-[#50A96B] text-white"
                     : "text-slate-600 hover:bg-slate-100 hover:text-slate-950"
                 }`}
               >
@@ -75,7 +75,7 @@ export default async function ClientsPage({ searchParams }: ClientsPageProps) {
             </div>
             <Link
               href="/clientes/nuevo"
-              className="inline-flex h-10 items-center gap-2 rounded-md bg-slate-950 px-4 text-sm font-medium text-white hover:bg-slate-800"
+              className="inline-flex h-10 items-center gap-2 rounded-md bg-[#50A96B] px-4 text-sm font-medium text-white hover:bg-[#32603d]"
             >
               <Plus size={17} />
               Nuevo cliente

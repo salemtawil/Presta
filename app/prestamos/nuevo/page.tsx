@@ -65,7 +65,7 @@ export default async function NewLoanPage({ searchParams }: NewLoanPageProps) {
 
         <section className="rounded-lg border border-slate-200 bg-white">
           <div className="flex items-center gap-3 border-b border-slate-200 px-5 py-4">
-            <div className="flex size-10 items-center justify-center rounded-md bg-slate-950 text-white">
+            <div className="flex size-10 items-center justify-center rounded-md bg-[#50A96B] text-white">
               <Calculator size={19} />
             </div>
             <div>
@@ -176,7 +176,7 @@ export default async function NewLoanPage({ searchParams }: NewLoanPageProps) {
                 >
                   Cancelar
                 </Link>
-                <button className="inline-flex h-10 items-center gap-2 rounded-md bg-slate-950 px-4 text-sm font-medium text-white hover:bg-slate-800">
+                <button className="inline-flex h-10 items-center gap-2 rounded-md bg-[#50A96B] px-4 text-sm font-medium text-white hover:bg-[#32603d]">
                   <Save size={17} />
                   Crear prestamo
                 </button>
